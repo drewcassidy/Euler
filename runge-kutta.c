@@ -12,15 +12,16 @@ int main() {
     float x = STARTX;
 
     for (int i = 1; i <= STEPCOUNT; i++) {
+
         float val1 = STEPSIZE * f(x, y);
         float val2 = STEPSIZE * f(x + STEPSIZE / 2, y + val1 / 2);
         float val3 = STEPSIZE * f(x + STEPSIZE / 2, y + val2 / 2);
         float val4 = STEPSIZE * f(x + STEPSIZE, y + val3);
 
         x += STEPSIZE;
-        y += (1.0 / 6.0) * (val1 + 2*val2 + 2*val3 + val4);
+        y += (1.0 / 6.0) * (val1 + 2 * val2 + 2 * val3 + val4);
 
-        printf("n=%d: y(%2f) = %2f\n",i, x, y);
+        printf("n=%d: y(%2f) = %2f\n", i, x, y);
     }
 }
 

@@ -12,12 +12,15 @@ int main() {
     float x = STARTX;
 
     for (int i = 1; i <= STEPCOUNT; i++) {
+
         float lastx = x;
-        x += STEPSIZE;
+
 
         float predictor = y + (STEPSIZE * f(lastx, y));
+
+        x += STEPSIZE;
         y += STEPSIZE * 0.5 * (f(lastx, y) + f(x, predictor));
-        printf("n=%d: y(%2f) = %2f\n",i, x, y);
+        printf("n=%d: y(%2f) = %2f\n", i, x, y);
     }
 }
 
