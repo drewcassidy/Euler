@@ -27,8 +27,8 @@ int main() {
         float l4 = STEPSIZE * g(x + STEPSIZE, y + k3, z + l3);
 
         x += STEPSIZE;
-        y += (1.0 / 6.0) * (k1 + k2 * 2 + k3 * 2 + k4);
-        z += (1.0 / 6.0) * (l1 + l2 * 2 + l3 * 2 + l4);
+        y += (k1 + (k2 * 2) + (k3 * 2) + k4) / 6;
+        z += (l1 + (l2 * 2) + (l3 * 2) + l4) / 6;
 
         printf("n=%2d: x=%2.3f y=%2.3f z=%2.3f\n", i, x, y, z);
     }

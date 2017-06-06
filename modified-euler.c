@@ -13,14 +13,15 @@ int main() {
 
     for (int i = 1; i <= STEPCOUNT; i++) {
 
-        float lastx = x;
+        float predictor = y + (STEPSIZE * f(x, y));
 
-
-        float predictor = y + (STEPSIZE * f(lastx, y));
+        float k1 = f(x, y);
+        float k2 = f(x + STEPSIZE, predictor);
 
         x += STEPSIZE;
-        y += STEPSIZE * 0.5 * (f(lastx, y) + f(x, predictor));
-        printf("n=%d: y(%2f) = %2f\n", i, x, y);
+        y += STEPSIZE * 0.5 * (k1 + k2);
+
+        printf("n=%d: x=%2.3f y=%2.3f\n", i, x, y);
     }
 }
 

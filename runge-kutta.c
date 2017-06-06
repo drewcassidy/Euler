@@ -13,15 +13,15 @@ int main() {
 
     for (int i = 1; i <= STEPCOUNT; i++) {
 
-        float val1 = STEPSIZE * f(x, y);
-        float val2 = STEPSIZE * f(x + STEPSIZE / 2, y + val1 / 2);
-        float val3 = STEPSIZE * f(x + STEPSIZE / 2, y + val2 / 2);
-        float val4 = STEPSIZE * f(x + STEPSIZE, y + val3);
+        float k1 = STEPSIZE * f(x, y);
+        float k2 = STEPSIZE * f(x + STEPSIZE / 2, y + k1 / 2);
+        float k3 = STEPSIZE * f(x + STEPSIZE / 2, y + k2 / 2);
+        float k4 = STEPSIZE * f(x + STEPSIZE, y + k3);
 
         x += STEPSIZE;
-        y += (1.0 / 6.0) * (val1 + 2 * val2 + 2 * val3 + val4);
+        y += (k1 + (2 * k2) + (2 * k3) + k4) / 6;
 
-        printf("n=%d: y(%2f) = %2f\n", i, x, y);
+        printf("n=%d: x=%2.3f y=%2.3f\n", i, x, y);
     }
 }
 
