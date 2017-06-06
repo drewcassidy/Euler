@@ -34,6 +34,7 @@ int main() {
     }
 }
 
+// y" + sin(x)y' + x²y = cos(x)
 float f(float x, float y, float z) {
     return z;
 }

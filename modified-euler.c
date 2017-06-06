@@ -5,7 +5,7 @@
 #define STARTY 1
 #define STARTX 0
 
-float func(float x, float y);
+float f(float x, float y);
 
 int main() {
     float y = STARTY;
@@ -15,12 +15,13 @@ int main() {
         float lastx = x;
         x += STEPSIZE;
 
-        float predictor = y + (STEPSIZE * func(lastx, y));
-        y += STEPSIZE * 0.5 * (func(lastx, y) + func(x, predictor));
+        float predictor = y + (STEPSIZE * f(lastx, y));
+        y += STEPSIZE * 0.5 * (f(lastx, y) + f(x, predictor));
         printf("n=%d: y(%2f) = %2f\n",i, x, y);
     }
 }
 
-float func(float x, float y) {
+// y' = xy
+float f(float x, float y) {
     return x * y;
 }
